@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="Greetings_Welcome">WELCOME</string>
+    <string name="Greetings_Intro">WELCOME</string>
+    <string name="Greeting_Welcome">WELCOME</string>
+    <string name="Greeting_welcome_line">Hope you enjoy the stay</string>
+    <string name="Facebook_Button_Text">Sign in with facebook</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="or">or</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="not_a_member">Not a member?</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="new_password">New Password</string>
+    <string name="cancel">cancel</string>
+    <string name="save_changes">Save Changes</string>
+
+    <string name="title_activity_reset_password">ResetPassword</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_welcome">welcome</string>
+
+
+</resources>

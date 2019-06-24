@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "553587043998",
+    "firebase_url": "https://water-can-f8a3c.firebaseio.com",
+    "project_id": "water-can-f8a3c",
+    "storage_bucket": "water-can-f8a3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553587043998:android:d518dfb2ddbceb83",
+        "android_client_info": {
+          "package_name": "com.qapaper.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553587043998-ho5vnqs8e33uo0llmtgnnnh7j56knqaf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx7OGhZbC_r-xLJy2Oi5-5zn7pc7Shhr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553587043998-ho5vnqs8e33uo0llmtgnnnh7j56knqaf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
