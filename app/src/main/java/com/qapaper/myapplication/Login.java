@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -56,12 +57,19 @@ public class Login extends AppCompatActivity {
 
                         String userF = dataSnapshot.child(user).child("username").getValue().toString();
                         String passF = dataSnapshot.child(user).child("pass").getValue().toString();
+                        String emailF = dataSnapshot.child(user).child("email").getValue().toString();
+                        String phoneF = dataSnapshot.child(user).child("phone").getValue().toString();
+
+
                         if (user.equals(userF) && pass.equals(passF)) {
                             Toast.makeText(getApplicationContext(), "Successful!", Toast.LENGTH_SHORT).show();
 
                             SharedPreferences.Editor user_editor=sharedPreferencesobj.edit();
                             user_editor.putString("username",userF);
                             user_editor.putString("password",passF);
+                            user_editor.putString("email",emailF);
+                            user_editor.putString("phone",phoneF);
+
                             user_editor.apply();
 
                             Intent i = new Intent(getApplicationContext(), MainActivity.class);

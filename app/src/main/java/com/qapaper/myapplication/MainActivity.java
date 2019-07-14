@@ -1,5 +1,6 @@
 package com.qapaper.myapplication;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
@@ -28,6 +29,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     ListView can_type;
+
     DatabaseReference myRef;
     SharedPreferences sharedPreferencesobj;
     List<Double> list_array_cantype_price;
@@ -84,6 +86,12 @@ public class MainActivity extends AppCompatActivity {
         can_type.setAdapter(list_array_cantype_adapter);
 
 
+
+    }
+
+    public void myinfo(View view) {
+        Intent i=new Intent(this,User.class);
+        startActivity(i);
 
     }
 }

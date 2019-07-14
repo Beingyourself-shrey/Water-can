@@ -24,18 +24,28 @@
         android:id="@+id/name"
         android:textColor="#ccc"
         android:textSize="50sp"/>
-
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="user"
+    android:id="@+id/user_info"
+    android:layout_centerHorizontal="true"
+    android:onClick="myinfo"
+    android:background="#000"
+    android:textColor="#fff"
+    android:layout_below="@+id/name"/>
     <ListView
         android:layout_marginTop="70dp"
         android:layout_width="match_parent"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/name"
+        android:layout_below="@+id/user_info"
         android:layout_height="wrap_content"
         android:id="@+id/list_can_type"
         android:divider="#ccc"
         android:dividerHeight="1dp"
 
         >
+
 
     </ListView>
 
