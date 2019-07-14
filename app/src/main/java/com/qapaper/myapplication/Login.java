@@ -1,6 +1,7 @@
 package com.qapaper.myapplication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,10 +20,18 @@ public class Login extends AppCompatActivity {
     EditText userC;
     EditText passC;
     String user,pass;
+    SharedPreferences sharedPreferencesobj;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        sharedPreferencesobj=getApplicationContext().getSharedPreferences("session_user",0);
+        if(sharedPreferencesobj.contains("username"))
+        {
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
     public void loginValidate(View v)
     {
@@ -49,6 +58,12 @@ public class Login extends AppCompatActivity {
                         String passF = dataSnapshot.child(user).child("pass").getValue().toString();
                         if (user.equals(userF) && pass.equals(passF)) {
                             Toast.makeText(getApplicationContext(), "Successful!", Toast.LENGTH_SHORT).show();
+
+                            SharedPreferences.Editor user_editor=sharedPreferencesobj.edit();
+                            user_editor.putString("username",userF);
+                            user_editor.putString("password",passF);
+                            user_editor.apply();
+
                             Intent i = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(i);
                             finish();
