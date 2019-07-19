@@ -1,54 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/splash_bg">
- <TextView
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:text="CHOOSE"
-     android:layout_centerHorizontal="true"
-     android:gravity="center"
-     android:id="@+id/heading"
-     android:textColor="#ccc"
-     android:textSize="50sp"/>
-    <TextView
+    android:layout_weight="1"
+    android:fillViewport="true"
+    android:background="#fff">
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/heading"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:id="@+id/name"
-        android:textColor="#ccc"
-        android:textSize="50sp"/>
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="user"
-    android:id="@+id/user_info"
-    android:layout_centerHorizontal="true"
-    android:onClick="myinfo"
-    android:background="#000"
-    android:textColor="#fff"
-    android:layout_below="@+id/name"/>
-    <ListView
-        android:layout_marginTop="70dp"
-        android:layout_width="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/user_info"
-        android:layout_height="wrap_content"
-        android:id="@+id/list_can_type"
-        android:divider="#ccc"
-        android:dividerHeight="1dp"
+        android:layout_height="match_parent"
+        android:paddingBottom="70dp">
 
-        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CHOOSE"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:id="@+id/heading"
+            android:textColor="#000"
+            android:textSize="50sp"/>
+        <HorizontalScrollView
+            android:id="@+id/horizontalScroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/heading"
+            android:animateLayoutChanges="true"
+            android:layout_marginTop="60dp"
+            android:scrollbars="none"
+            android:layout_centerHorizontal="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="20dp"
+                android:id="@+id/list_item">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline"
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:onClick="chilled"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/water"
+                        android:tint="#002e6e"
+
+                        android:id="@+id/chilled_img"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/chilled_text"
+                        android:text="CHILLED"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/chilled_text"
+                        android:text="40rs"
+                        android:id="@+id/chilled_price"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#999"
+                        android:textSize="15sp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline"
+                    android:padding="10dp"
+                    android:onClick="normal"
+                    android:orientation="vertical"
+                    android:layout_marginStart="20dp"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/water"
+                        android:id="@+id/normal_img"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/normal_text"
+                        android:text="NORMAL"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="30rs"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/normal_price"
+                        android:textColor="#999"
+                        android:textSize="15sp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
 
 
-    </ListView>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        </RelativeLayout>
 
 
+    </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/outline"
+            android:padding="2dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                >
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:tint="#002e6e"
+                android:src="@drawable/ic_home"
+
+                />
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Home"
+                 android:textColor="#000"
+                 />
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    >
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_orders"
+                        android:tint="#002e6e"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My Orders"
+                        android:textColor="#000"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingLeft="20dp"
+                    android:onClick="myinfo"
+                    android:paddingRight="20dp"
+                    >
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:tint="#002e6e"
+                        android:src="@drawable/ic_usero"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="User"
+                        android:textColor="#000"
+                        />
+
+                </LinearLayout>
+
+
+    </LinearLayout>
 
 </RelativeLayout>
+
+
+

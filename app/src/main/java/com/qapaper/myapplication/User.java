@@ -1,8 +1,10 @@
 package com.qapaper.myapplication;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 
@@ -21,6 +23,16 @@ SharedPreferences sharedPreferencesobj;
         phonetv.setText(sharedPreferencesobj.getString("phone",""));
         emailtv.setText(sharedPreferencesobj.getString("email",""));
 
+
+
+    }
+    public void logout(View view)
+    {
+        SharedPreferences.Editor editor=sharedPreferencesobj.edit();
+        editor.clear();
+        editor.apply();
+        Intent i=new Intent(this,Login.class);
+        startActivity(i);
 
     }
 }

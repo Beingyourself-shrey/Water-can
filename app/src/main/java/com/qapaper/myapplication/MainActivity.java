@@ -28,65 +28,54 @@ import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
-    ListView can_type;
+
 
     DatabaseReference myRef;
     SharedPreferences sharedPreferencesobj;
-    List<Double> list_array_cantype_price;
-    List<String> list_array_cantype;
-    MyAdapterForTwoList list_array_cantype_adapter;
+    SharedPreferences.Editor editor;
+    TextView normal_tv;
+    TextView chilled_tv;
+    String price_of_location;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView textView =  findViewById(R.id.heading);
+        TextView heading_tv =  findViewById(R.id.heading);
+        normal_tv=findViewById(R.id.normal_price);
+        chilled_tv=findViewById(R.id.chilled_price);
+
+        //font added
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
-        textView.setTypeface(typeface);
-      sharedPreferencesobj=getApplicationContext().getSharedPreferences("session_user",0);
-      TextView textView1=findViewById(R.id.name);
-      textView1.setText(sharedPreferencesobj.getString("username",""));
+        heading_tv.setTypeface(typeface);
+        //font end
 
-         can_type=findViewById(R.id.list_can_type);
-        list_array_cantype=new ArrayList<String>();
-        list_array_cantype_price=new ArrayList<Double>();
-        myRef = FirebaseDatabase.getInstance().getReference();
-        Log.d("zzz", myRef.child("Can").toString());
-        myRef.child("Can").addListenerForSingleValueEvent(new ValueEventListener() {
-            //addListenerForSingleValueEvent
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for(int i=0;i<dataSnapshot.getChildrenCount();i++)
-                {
-//                    Log.d("jdj", String.valueOf(dataSnapshot.child(String.valueOf(i)).child("cantype").getValue()));
-                    Can c = dataSnapshot.child(String.valueOf(i)).getValue(Can.class);
-//                    Log.d("jdj", c.cantype + " " + c.price);
-                    list_array_cantype.add(c.cantype);
-                    list_array_cantype_price.add(c.price);
-                    Log.d("dsd",list_array_cantype.get(i)+" "+list_array_cantype_price.get(i)+"");
-
-                }
+       //Shared Preferences name session_user
+        sharedPreferencesobj=getApplicationContext().getSharedPreferences("session_user",0);
+         price_of_location=sharedPreferencesobj.getString("price","");
+        normal_tv.setText(price_of_location);
+        chilled_tv.setText(String.valueOf(Double.parseDouble(price_of_location)+15));
+         editor=sharedPreferencesobj.edit();
 
 
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-
-
-        list_array_cantype_adapter= new MyAdapterForTwoList( this,list_array_cantype,list_array_cantype_price);
-        can_type.setAdapter(list_array_cantype_adapter);
-
-
-
+    }
+    public void chilled(View view)
+    {
+       editor.putString("type","chilled");
+        editor.putString("price",String.valueOf(Double.parseDouble(price_of_location)+15));
+       editor.apply();
+       Intent i = new Intent(this,Generation.class);
+       startActivity(i);
+    }
+    public void normal(View v)
+    {
+        editor.putString("type","normal");
+        editor.putString("price",price_of_location);
+        editor.apply();
+        Intent i = new Intent(this,Generation.class);
+        startActivity(i);
     }
 
     public void myinfo(View view) {

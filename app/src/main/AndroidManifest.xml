@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".User"></activity>
+        <activity android:name=".Location"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".Generation"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".User"
+            android:label="About Me" />
         <activity
             android:name=".welcome"
             android:label="@string/title_activity_welcome"
@@ -27,10 +36,10 @@
         <activity
             android:name=".Login"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

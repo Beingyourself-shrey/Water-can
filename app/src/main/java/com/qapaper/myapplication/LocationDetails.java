@@ -1,16 +1,15 @@
 package com.qapaper.myapplication;
 
-public class Can {
-    String cantype;
+public class LocationDetails {
+    String name;
     double price;
 
-
-    public String getCantype() {
-        return cantype;
+    public String getName() {
+        return name;
     }
 
-    public void setCantype(String cantype) {
-        this.cantype = cantype;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getPrice() {

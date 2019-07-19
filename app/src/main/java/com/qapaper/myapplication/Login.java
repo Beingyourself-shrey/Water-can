@@ -29,7 +29,7 @@ public class Login extends AppCompatActivity {
         sharedPreferencesobj=getApplicationContext().getSharedPreferences("session_user",0);
         if(sharedPreferencesobj.contains("username"))
         {
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            Intent i = new Intent(getApplicationContext(), Location.class);
             startActivity(i);
             finish();
         }
@@ -64,6 +64,7 @@ public class Login extends AppCompatActivity {
                         if (user.equals(userF) && pass.equals(passF)) {
                             Toast.makeText(getApplicationContext(), "Successful!", Toast.LENGTH_SHORT).show();
 
+                            //Storing values in SharedPreferences
                             SharedPreferences.Editor user_editor=sharedPreferencesobj.edit();
                             user_editor.putString("username",userF);
                             user_editor.putString("password",passF);
@@ -72,7 +73,7 @@ public class Login extends AppCompatActivity {
 
                             user_editor.apply();
 
-                            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                            Intent i = new Intent(getApplicationContext(), Location.class);
                             startActivity(i);
                             finish();
                         } else {
