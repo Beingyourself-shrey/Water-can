@@ -83,4 +83,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
 
     }
+
+    public void home(View view) {
+        Intent i=new Intent(this,MainActivity.class);
+        startActivity(i);
+    }
 }

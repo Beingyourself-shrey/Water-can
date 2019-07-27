@@ -13,8 +13,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class signup extends AppCompatActivity {
 
-    EditText userC, passC,conpassC,emailC,phoneC;
-    String user,pass,conpass,email,phone;
+    EditText userC, passC,conpassC,emailC,phoneC,addressC;
+    String user,pass,conpass,email,phone,address;
     Member member;
     DatabaseReference myRef;
     @Override
@@ -26,6 +26,7 @@ public class signup extends AppCompatActivity {
         conpassC=findViewById(R.id.conpass);
         emailC=findViewById(R.id.email);
         phoneC=findViewById(R.id.phone);
+        addressC=findViewById(R.id.address);
         myRef = FirebaseDatabase.getInstance().getReference().child("Member");
     }
     protected void validateSignup(View v)
@@ -36,11 +37,12 @@ public class signup extends AppCompatActivity {
         conpass= String.valueOf(conpassC.getText()).trim();
         email= String.valueOf(emailC.getText()).trim();
         phone= String.valueOf(phoneC.getText()).trim();
+        address= String.valueOf(addressC.getText()).trim();
         member=new Member();
 
 
 
-        if(user.equals("")||pass.equals("")||conpass.equals("")||email.equals("")||phone.equals(""))
+        if(user.equals("")||pass.equals("")||conpass.equals("")||email.equals("")||phone.equals("")||address.equals(""))
             Toast.makeText(this,"Please Fill All Fields",Toast.LENGTH_SHORT).show();
         else if(pass.length()<8)
             Toast.makeText(this,"Password Length Should be 8 or more",Toast.LENGTH_SHORT).show();
@@ -55,7 +57,7 @@ public class signup extends AppCompatActivity {
             member.setPass(pass);
             member.setEmail(email);
             member.setPhone(phone);
-
+            member.setAddress(address);
 
             myRef.child(user).setValue(member);
             Toast.makeText(this,"Done! Signup",Toast.LENGTH_LONG).show();

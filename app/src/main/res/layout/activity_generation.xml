@@ -51,6 +51,7 @@
                 android:layout_below="@+id/price"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
+                android:id="@+id/quantity_container"
                 android:orientation="horizontal">
                 <RelativeLayout
                     android:layout_width="35dp"
@@ -96,6 +97,45 @@
 
                 </RelativeLayout>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/quantity_container"
+                android:id="@+id/total_container"
+                android:layout_marginTop="14dp"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TOTAL :"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:textColor="#000"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quantity"
+                    android:id="@+id/total"
+                    android:textSize="13sp"
+                    android:padding="5dp"
+                    />
+
+
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:layout_below="@+id/total_container"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:id="@+id/order_btn"
+                android:onClick="order_address"
+                android:background="@drawable/signup_button_bg"
+                android:text="Order Now"/>
 
         </RelativeLayout>
 
@@ -116,6 +156,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
+                android:onClick="home"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 >

@@ -59,7 +59,7 @@ public class Login extends AppCompatActivity {
                         String passF = dataSnapshot.child(user).child("pass").getValue().toString();
                         String emailF = dataSnapshot.child(user).child("email").getValue().toString();
                         String phoneF = dataSnapshot.child(user).child("phone").getValue().toString();
-
+                        String addressF = dataSnapshot.child(user).child("address").getValue().toString();
 
                         if (user.equals(userF) && pass.equals(passF)) {
                             Toast.makeText(getApplicationContext(), "Successful!", Toast.LENGTH_SHORT).show();
@@ -70,6 +70,7 @@ public class Login extends AppCompatActivity {
                             user_editor.putString("password",passF);
                             user_editor.putString("email",emailF);
                             user_editor.putString("phone",phoneF);
+                            user_editor.putString("address",addressF);
 
                             user_editor.apply();
 

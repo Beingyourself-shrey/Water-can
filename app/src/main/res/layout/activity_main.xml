@@ -143,6 +143,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
+                android:onClick="home"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 >

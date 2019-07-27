@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:padding="1dp"
                 android:text="Choose Location"
+                android:textColor="#000"
                 android:id="@+id/heading_loc"
                 android:gravity="center"
                 android:textSize="50sp"

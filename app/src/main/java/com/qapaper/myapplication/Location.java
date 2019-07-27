@@ -56,7 +56,7 @@ public class Location extends AppCompatActivity  {
                 {
                     LocationDetails locationDetails=dataSnapshot.child(String.valueOf(i)).getValue(LocationDetails.class);
 
-                     String name=locationDetails.getName();
+                     String name=locationDetails.getName().toUpperCase();
                      Double price=locationDetails.getPrice();
                     loc_list.add(name);
                     loc_price.add(price);

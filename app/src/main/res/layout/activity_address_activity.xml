@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".address_activity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="70dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ADDRESS"
+                android:textSize="50sp"
+                android:gravity="center"
+                android:id="@+id/heading"
+                android:textColor="#000"/>
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loading...."
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="110dp"
+                android:textSize="25sp"
+                android:textColor="#111"
+                android:padding="6dp"
+                android:id="@+id/address"/>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:layout_gravity="center"
+                android:layout_marginTop="110dp"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:padding="10dp"
+                android:id="@+id/editbtn"
+                android:onClick="editActivity"
+                android:background="@drawable/my_button_bg"/>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="order"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:padding="10dp"
+                android:id="@+id/order_btn"
+                android:onClick="order"
+                android:background="@drawable/my_button_bg"/>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/outline"
+        android:padding="2dp"
+        android:gravity="center"
+
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:onClick="home"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            >
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:tint="#002e6e"
+                android:src="@drawable/ic_home"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="#000"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            >
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_orders"
+                android:tint="#002e6e"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Orders"
+                android:textColor="#000"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:onClick="myinfo"
+            android:paddingRight="20dp"
+            >
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:tint="#002e6e"
+                android:src="@drawable/ic_usero"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User"
+                android:textColor="#000"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

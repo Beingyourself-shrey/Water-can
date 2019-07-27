@@ -1,7 +1,21 @@
 package com.qapaper.myapplication;
 
 public class Member {
-    String username,pass,email,phone;
+    String username;
+    String pass;
+    String email;
+    String phone;
+    Orders order;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    String address;
 
     public String getUsername() {
         return username;
@@ -34,4 +48,8 @@ public class Member {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+}
+
+class Orders{
+
 }
