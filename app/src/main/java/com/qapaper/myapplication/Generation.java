@@ -43,11 +43,7 @@ public class Generation extends AppCompatActivity {
 
 
     }
-    public void myinfo(View view) {
-        Intent i=new Intent(this,User.class);
-        startActivity(i);
 
-    }
     public void reduce(View v)
     {
         if(Integer.parseInt(String.valueOf(quantity_tv.getText()))!=1)
@@ -82,4 +78,16 @@ public class Generation extends AppCompatActivity {
         Intent i=new Intent(this,MainActivity.class);
         startActivity(i);
     }
+    public void myorders(View view) {
+
+        Intent i =new Intent(getApplicationContext(),order_container.class);
+        startActivity(i);
+    }
+    public void myinfo(View view) {
+        Intent i=new Intent(this,User.class);
+        startActivity(i);
+
+    }
+
+
 }

@@ -10,7 +10,20 @@ public class SharePrefDetails {
     String phn;
     String email;
 
-    public SharePrefDetails(String location, String address, String cantype, String quantity, String totalPrice, String usrname, String phn, String email, String price) {
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    String date;
+
+    public SharePrefDetails(){
+
+    }
+    public SharePrefDetails(String location, String address, String cantype, String quantity, String totalPrice, String usrname, String phn, String email, String price,String date) {
         this.location = location;
         this.address = address;
         this.cantype = cantype;
@@ -20,6 +33,7 @@ public class SharePrefDetails {
         this.phn = phn;
         this.email = email;
         this.price = price;
+        this.date=date;
     }
 
 

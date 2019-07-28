@@ -31,7 +31,23 @@ SharedPreferences sharedPreferencesobj;
         SharedPreferences.Editor editor=sharedPreferencesobj.edit();
         editor.clear();
         editor.apply();
+
         Intent i=new Intent(this,Login.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
+
+    }
+    public void home(View view) {
+        Intent i=new Intent(this,MainActivity.class);
+        startActivity(i);
+    }
+    public void myorders(View view) {
+
+        Intent i =new Intent(getApplicationContext(),order_container.class);
+        startActivity(i);
+    }
+    public void myinfo(View view) {
+        Intent i=new Intent(this,User.class);
         startActivity(i);
 
     }

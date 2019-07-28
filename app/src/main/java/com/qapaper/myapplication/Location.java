@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
@@ -25,43 +26,41 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import android.widget.AdapterView.OnItemSelectedListener;
-public class Location extends AppCompatActivity  {
+public class Location extends AppCompatActivity {
     Spinner loc_spinner;
-    List <String> loc_list;
-    List <Double> loc_price;
+    List<String> loc_list;
+    List<Double> loc_price;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
-        TextView textView =  findViewById(R.id.heading_loc);
+        TextView textView = findViewById(R.id.heading_loc);
         //font added
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
         textView.setTypeface(typeface);
 
-        pref=getApplicationContext().getSharedPreferences("session_user",0);
-        editor=pref.edit();
-        loc_spinner=findViewById(R.id.loc_spinner);
-        loc_list=new ArrayList<String>();
-        loc_price=new ArrayList<Double>();
+        pref = getApplicationContext().getSharedPreferences("session_user", 0);
+        editor = pref.edit();
+        loc_spinner = findViewById(R.id.loc_spinner);
+        loc_list = new ArrayList<String>();
+        loc_price = new ArrayList<Double>();
         //Adding Default value for location name and price
         loc_list.add("Select One!!");
         loc_price.add(0.00);
-        DatabaseReference myref= FirebaseDatabase.getInstance().getReference().child("location");
+        DatabaseReference myref = FirebaseDatabase.getInstance().getReference().child("location");
         myref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(int i=0;i<dataSnapshot.getChildrenCount();i++)
-                {
-                    LocationDetails locationDetails=dataSnapshot.child(String.valueOf(i)).getValue(LocationDetails.class);
+                for (int i = 0; i < dataSnapshot.getChildrenCount(); i++) {
+                    LocationDetails locationDetails = dataSnapshot.child(String.valueOf(i)).getValue(LocationDetails.class);
 
-                     String name=locationDetails.getName().toUpperCase();
-                     Double price=locationDetails.getPrice();
+                    String name = locationDetails.getName().toUpperCase();
+                    Double price = locationDetails.getPrice();
                     loc_list.add(name);
                     loc_price.add(price);
-
-
 
                 }
             }
@@ -73,7 +72,7 @@ public class Location extends AppCompatActivity  {
         });
 
 
-        Adapter adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,loc_list);
+        Adapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, loc_list);
         loc_spinner.setPrompt("Select your favorite Planet!");
         loc_spinner.setAdapter((SpinnerAdapter) adapter);
 
@@ -81,28 +80,34 @@ public class Location extends AppCompatActivity  {
     }
 
     public void loc_submit(View view) {
-            String location=loc_spinner.getItemAtPosition(loc_spinner.getSelectedItemPosition()).toString();
-            if(loc_spinner.getSelectedItemPosition()!=0) {
-                Double price = loc_price.get(loc_spinner.getSelectedItemPosition());
+        String location = loc_spinner.getItemAtPosition(loc_spinner.getSelectedItemPosition()).toString();
+        if (loc_spinner.getSelectedItemPosition() != 0) {
+            Double price = loc_price.get(loc_spinner.getSelectedItemPosition());
 
-                //Log.d("shs",location+""+String.valueOf(price));
-                editor.putString("location", location);
-                editor.putString("price", String.valueOf(price));
-                editor.apply();
-                Intent i = new Intent(this, MainActivity.class);
-                startActivity(i);
-            }
+            //Log.d("shs",location+""+String.valueOf(price));
+            editor.putString("location", location);
+            editor.putString("price", String.valueOf(price));
+            editor.apply();
+
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
 
 
     }
 
-//    @Override
-//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//        Toast.makeText(this,"kv" , Toast.LENGTH_LONG).show();
-//    }
-//
-//    @Override
-//    public void onNothingSelected(AdapterView<?> parent) {
-//
-//    }
+    public void home(View view) {
+        Intent i=new Intent(this,MainActivity.class);
+        startActivity(i);
+    }
+    public void myorders(View view) {
+
+        Intent i =new Intent(getApplicationContext(),order_container.class);
+        startActivity(i);
+    }
+    public void myinfo(View view) {
+        Intent i=new Intent(this,User.class);
+        startActivity(i);
+
+    }
 }

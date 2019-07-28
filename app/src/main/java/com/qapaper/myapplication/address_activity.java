@@ -1,11 +1,15 @@
 package com.qapaper.myapplication;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -16,6 +20,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class address_activity extends AppCompatActivity {
     TextView heading_tv,address_tv;
@@ -70,10 +79,12 @@ public class address_activity extends AppCompatActivity {
         String quantity=spref.getString("quantity","");
         String location=spref.getString("location","");
 
-        //setting all sharepref values to shareprefDetailsClass
-        final SharePrefDetails sharePrefDetails=new SharePrefDetails(location,address,type,quantity,total_price,username,phone,email,price);
+        Date date = new Date();
 
-        int count;
+
+        //setting all sharepref values to shareprefDetailsClass
+        final SharePrefDetails sharePrefDetails=new SharePrefDetails(location,address,type,quantity,total_price,username,phone,email,price,date.toString());
+
 
 
 
@@ -94,6 +105,7 @@ public class address_activity extends AppCompatActivity {
                 }
 
                 Toast.makeText(getApplicationContext(),"Ordered",Toast.LENGTH_SHORT).show();
+
                 Intent i=new Intent(getApplicationContext(),Location.class);
                 startActivity(i);
                 finish();

@@ -83,7 +83,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
 
     }
+    public void myorders(View view) {
 
+        Intent i =new Intent(getApplicationContext(),order_container.class);
+        startActivity(i);
+    }
     public void home(View view) {
         Intent i=new Intent(this,MainActivity.class);
         startActivity(i);
