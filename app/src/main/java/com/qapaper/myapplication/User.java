@@ -38,7 +38,7 @@ SharedPreferences sharedPreferencesobj;
 
     }
     public void home(View view) {
-        Intent i=new Intent(this,MainActivity.class);
+        Intent i=new Intent(this,Location.class);
         startActivity(i);
     }
     public void myorders(View view) {
@@ -47,8 +47,7 @@ SharedPreferences sharedPreferencesobj;
         startActivity(i);
     }
     public void myinfo(View view) {
-        Intent i=new Intent(this,User.class);
-        startActivity(i);
+
 
     }
 }

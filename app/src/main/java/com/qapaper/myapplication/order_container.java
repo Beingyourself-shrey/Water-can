@@ -2,6 +2,7 @@ package com.qapaper.myapplication;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,16 @@ SharedPreferences spref;
         setContentView(R.layout.activity_order_container);
         //Main Container
         final LinearLayout parent=findViewById(R.id.parent);
+
+        TextView heading=findViewById(R.id.type_heading);
+
+        //Font
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
+        heading.setTypeface(typeface);
+
+        final Typeface typeface1 = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf");
+
+
 
         //database Reference
         dref= FirebaseDatabase.getInstance().getReference().child("Member");
@@ -96,6 +107,18 @@ SharedPreferences spref;
                     location_tv.setTextColor(BLACK);
                     cantype_tv.setTextColor(BLACK);
                     date_tv.setTextColor(BLACK);
+
+                    //setting font family
+                    name_tv.setTypeface(typeface1);
+                    quantity_tv.setTypeface(typeface1);
+                    price_tv.setTypeface(typeface1);
+                    total_tv.setTypeface(typeface1);
+                    phone_tv.setTypeface(typeface1);
+                    address_tv.setTypeface(typeface1);
+                    location_tv.setTypeface(typeface1);
+                    cantype_tv.setTypeface(typeface1);
+                    date_tv.setTypeface(typeface1);
+
                     //adding all textView in child
                     child.addView(name_tv);
                     child.addView(quantity_tv);
@@ -128,13 +151,12 @@ SharedPreferences spref;
     }
 
     public void home(View view) {
-        Intent i=new Intent(this,MainActivity.class);
+        Intent i=new Intent(this,Location.class);
         startActivity(i);
     }
     public void myorders(View view) {
 
-        Intent i =new Intent(getApplicationContext(),order_container.class);
-        startActivity(i);
+
     }
     public void myinfo(View view) {
         Intent i=new Intent(this,User.class);

@@ -1,14 +1,18 @@
 package com.qapaper.myapplication;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
+import com.google.firebase.database.ValueEventListener;
 
 
 public class signup extends AppCompatActivity {
@@ -53,16 +57,41 @@ public class signup extends AppCompatActivity {
             Toast.makeText(this,"Password didn't match!",Toast.LENGTH_SHORT).show();
         else
         {
-            member.setUsername(user);
-            member.setPass(pass);
-            member.setEmail(email);
-            member.setPhone(phone);
-            member.setAddress(address);
 
-            myRef.child(user).setValue(member);
-            Toast.makeText(this,"Done! Signup",Toast.LENGTH_LONG).show();
+
+            myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                     int error = 1;
+                      if (!dataSnapshot.child(user).exists()) {
+                          member.setUsername(user);
+                          member.setPass(pass);
+                          member.setEmail(email);
+                          member.setPhone(phone);
+                          member.setAddress(address);
+
+                          myRef.child(user).setValue(member);
+                          Toast.makeText(getApplicationContext(),"Done! Signup",Toast.LENGTH_LONG).show();
+                          Intent ii=new Intent(getApplicationContext(),Login.class);
+                          startActivity(ii);
+                          finish();
+
+                       }
+                      else{
+                          Toast.makeText(getApplicationContext(),"Username Already exist",Toast.LENGTH_SHORT).show();
+                      }
+                      }
+
+                     @Override
+                     public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                             });
+
+
 
         }
 
-    }
+
+            }
 }

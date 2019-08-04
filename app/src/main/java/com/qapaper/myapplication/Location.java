@@ -97,8 +97,7 @@ public class Location extends AppCompatActivity {
     }
 
     public void home(View view) {
-        Intent i=new Intent(this,MainActivity.class);
-        startActivity(i);
+
     }
     public void myorders(View view) {
 
