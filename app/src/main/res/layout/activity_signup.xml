@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".signup"
-    android:background="@drawable/ss">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,142 +15,136 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:background="@drawable/my_circle_login"
+
             android:layout_gravity="center_horizontal">
 
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/user512"/>
+                android:src="@drawable/user1"
+                android:drawableTint="@color/white"/>
         </RelativeLayout>
 
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:hint="Username"
-                    android:layout_marginTop="50dp"
-                    android:id="@+id/user"
-                    android:textSize="20sp"
-                    android:textColor="#000"
-                    android:textColorHint="#222"
-                    android:drawableLeft="@drawable/user"
-                    android:layout_weight="4"
-                    android:drawableStart="@drawable/user"
-                    android:drawableTint="@color/colorPrimary"
-                    android:drawablePadding="10dp"
-                    tools:targetApi="m" />
-
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:hint="Password"
-                    android:layout_marginTop="13dp"
-                    android:id="@+id/pass"
-                    android:inputType="textPassword"
-                    android:textSize="20sp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:textColor="#000"
-                    android:textColorHint="#222"
-                    android:drawableLeft="@drawable/pass"
-                    android:layout_weight="4"
-                    android:drawableStart="@drawable/pass"
-                    android:drawableTint="@color/colorPrimary"
-                    android:drawablePadding="10dp"
-                    tools:targetApi="m" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:hint="Confirm Password"
-                    android:layout_marginTop="13dp"
-                    android:inputType="textPassword"
-                    android:id="@+id/conpass"
-                    android:textSize="20sp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:textColor="#000"
-                    android:textColorHint="#222"
-                    android:drawableLeft="@drawable/pass"
-                    android:layout_weight="4"
-                    android:drawableStart="@drawable/pass"
-                    android:drawableTint="@color/colorPrimary"
-                    android:drawablePadding="10dp"
-                    tools:targetApi="m" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="13dp"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:id="@+id/email"
-                    android:textSize="20sp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:textColor="#000"
-                    android:textColorHint="#222"
-                    android:drawableLeft="@drawable/envelope"
-                    android:layout_weight="4"
-                    android:drawableStart="@drawable/envelope"
-                    android:drawableTint="@color/colorPrimary"
-                    android:drawablePadding="10dp"
-                    tools:targetApi="m" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="13dp"
-                    android:hint="Phone"
-                    android:id="@+id/phone"
-                    android:inputType="phone"
-                    android:textSize="20sp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:textColor="#000"
-                    android:textColorHint="#222"
-                    android:drawableLeft="@drawable/phone"
-                    android:layout_weight="4"
-                    android:drawableStart="@drawable/phone"
-                    android:drawableTint="@color/colorPrimary"
-                    android:drawablePadding="10dp"
-                    tools:targetApi="m" />
-
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="13dp"
-            android:hint="Address"
-            android:id="@+id/address"
-            android:inputType="text"
-            android:textSize="20sp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:textColor="#000"
-            android:textColorHint="#222"
-            android:drawableLeft="@drawable/ic_home"
-            android:layout_weight="4"
-            android:drawableStart="@drawable/ic_home"
-            android:drawableTint="@color/colorPrimary"
-            android:drawablePadding="10dp"
-            tools:targetApi="m" />
+            android:layout_height="match_parent"
+            android:paddingHorizontal="20dp"
+            android:orientation="vertical">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:layout_marginTop="50dp"
+                android:id="@+id/user"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:textColorHint="#222"
+                android:drawableLeft="@drawable/user"
+                android:drawableStart="@drawable/user"
+                android:drawableTint="@color/colorPrimary"
+                android:drawablePadding="10dp"
+                tools:targetApi="m" />
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:layout_marginTop="13dp"
+                android:id="@+id/pass"
+                android:inputType="textPassword"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:textColorHint="#222"
+                android:drawableLeft="@drawable/pass"
+                android:drawableStart="@drawable/pass"
+                android:drawableTint="@color/colorPrimary"
+                android:drawablePadding="10dp"
+                tools:targetApi="m" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:hint="Confirm Password"
+                android:layout_marginTop="13dp"
+                android:inputType="textPassword"
+                android:id="@+id/conpass"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:textColorHint="#222"
+                android:drawableLeft="@drawable/pass"
+                android:layout_weight="4"
+                android:drawableStart="@drawable/pass"
+                android:drawableTint="@color/colorPrimary"
+                android:drawablePadding="10dp"
+                tools:targetApi="m" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="13dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:id="@+id/email"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:textColorHint="#222"
+                android:drawableLeft="@drawable/envelope"
+                android:layout_weight="4"
+                android:drawableStart="@drawable/envelope"
+                android:drawableTint="@color/colorPrimary"
+                android:drawablePadding="10dp"
+                tools:targetApi="m" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="13dp"
+                android:hint="Phone"
+                android:id="@+id/phone"
+                android:inputType="phone"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:textColorHint="#222"
+                android:drawableLeft="@drawable/phone"
+                android:layout_weight="4"
+                android:drawableStart="@drawable/phone"
+                android:drawableTint="@color/colorPrimary"
+                android:drawablePadding="10dp"
+                tools:targetApi="m" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="13dp"
+                android:hint="Address"
+                android:id="@+id/address"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:textColorHint="#222"
+                android:drawableLeft="@drawable/ic_home"
+                android:layout_weight="4"
+                android:drawableStart="@drawable/ic_home"
+                android:drawableTint="@color/colorPrimary"
+                android:drawablePadding="10dp"
+                tools:targetApi="m" />
+
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="20pt">
+            android:paddingHorizontal="40dp">
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
-                android:background="@drawable/signup_button_bg"
+                android:textAllCaps="false"
+                android:background="@drawable/my_button_bg"
                 android:layout_marginTop="40dp"
-                android:textColor="#000"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:onClick="validateSignup"/>
         </RelativeLayout>

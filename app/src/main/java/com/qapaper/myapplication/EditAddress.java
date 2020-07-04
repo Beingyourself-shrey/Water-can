@@ -29,10 +29,11 @@ public class EditAddress extends AppCompatActivity {
         address_et=findViewById(R.id.address);
         //Font
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
-        heading_tv.setTypeface(typeface);
+
 
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf");
         address_et.setTypeface(tf);
+        heading_tv.setTypeface(tf);
 
         //sharePref getting address
         spref=getApplicationContext().getSharedPreferences("session_user",0);
@@ -51,7 +52,7 @@ public class EditAddress extends AppCompatActivity {
             String user=spref.getString("username","");
             dref= FirebaseDatabase.getInstance().getReference().child("Member");
             dref.child(user).child("address").setValue(address_et.getText().toString().trim());
-            Intent i=new Intent(this,address_activity.class);
+            Intent i=new Intent(this,Generation.class);
             startActivity(i);
             this.finish();
 

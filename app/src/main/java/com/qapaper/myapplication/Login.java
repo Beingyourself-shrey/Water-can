@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -18,14 +21,27 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
     DatabaseReference myRef;
+    TextView tv;
     EditText userC;
     EditText passC;
     String user,pass;
+    LinearLayout ll;
+    RelativeLayout rl;
     SharedPreferences sharedPreferencesobj;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        rl=findViewById(R.id.loader_login);
+      ll=findViewById(R.id.main);
+        tv=findViewById(R.id.welcome);
+//        tv.animate().alpha(1);
+
         setContentView(R.layout.activity_login);
+//        ll.setVisibility(View.VISIBLE);
+
         sharedPreferencesobj=getApplicationContext().getSharedPreferences("session_user",0);
         if(sharedPreferencesobj.contains("username"))
         {
@@ -36,13 +52,19 @@ public class Login extends AppCompatActivity {
     }
     public void loginValidate(View v)
     {
-
+//        ll.setAlpha(0);
+//        rl.setAlpha(1);
         userC=findViewById(R.id.user);
         passC=findViewById(R.id.pass);
         user=userC.getText().toString().trim();
         pass=passC.getText().toString().trim();
         if(user.equals("")||pass.equals(""))
-            Toast.makeText(getApplicationContext(), "Please Fill All Field!", Toast.LENGTH_SHORT).show();
+            {
+//                ll.setAlpha(1);
+//                rl.setAlpha(0);
+                Toast.makeText(getApplicationContext(), "Please Fill All Field!", Toast.LENGTH_SHORT).show();
+
+            }
         else {
 
             myRef = FirebaseDatabase.getInstance().getReference().child("Member");
@@ -52,6 +74,7 @@ public class Login extends AppCompatActivity {
                     int error = 0;
                     if (!dataSnapshot.child(user).exists()) {
                         error = 1;
+
                     } else {
 
 
@@ -62,6 +85,8 @@ public class Login extends AppCompatActivity {
                         String addressF = dataSnapshot.child(user).child("address").getValue().toString();
 
                         if (user.equals(userF) && pass.equals(passF)) {
+//                            ll.setAlpha(1);
+//                            rl.setAlpha(0);
                             Toast.makeText(getApplicationContext(), "Successful!", Toast.LENGTH_SHORT).show();
 
                             //Storing values in SharedPreferences
@@ -83,8 +108,11 @@ public class Login extends AppCompatActivity {
                         }
                     }
                     if (error == 1)
+                        {
+//                            ll.setAlpha(1);
+//                            rl.setAlpha(0);
                         Toast.makeText(getApplicationContext(), "Wrong Credentials!", Toast.LENGTH_LONG).show();
-
+}
                 }
 
                 @Override

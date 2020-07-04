@@ -20,6 +20,6 @@
         android:text="Developed By Shrey"
         android:layout_below="@+id/waterimg"
         android:layout_centerHorizontal="true"
-        android:textSize="35sp"/>
+        android:textSize="20sp"/>
 
 </RelativeLayout>

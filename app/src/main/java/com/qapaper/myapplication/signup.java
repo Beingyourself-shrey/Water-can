@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -33,7 +34,7 @@ public class signup extends AppCompatActivity {
         addressC=findViewById(R.id.address);
         myRef = FirebaseDatabase.getInstance().getReference().child("Member");
     }
-    protected void validateSignup(View v)
+    public void validateSignup(View v)
     {
 
         user= String.valueOf(userC.getText()).trim();
