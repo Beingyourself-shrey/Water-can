@@ -27,20 +27,17 @@ public class Login extends AppCompatActivity {
     String user,pass;
     LinearLayout ll;
     RelativeLayout rl;
+
+
+
     SharedPreferences sharedPreferencesobj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
 
-        rl=findViewById(R.id.loader_login);
-      ll=findViewById(R.id.main);
-        tv=findViewById(R.id.welcome);
-//        tv.animate().alpha(1);
 
         setContentView(R.layout.activity_login);
-//        ll.setVisibility(View.VISIBLE);
 
         sharedPreferencesobj=getApplicationContext().getSharedPreferences("session_user",0);
         if(sharedPreferencesobj.contains("username"))
@@ -52,16 +49,16 @@ public class Login extends AppCompatActivity {
     }
     public void loginValidate(View v)
     {
-//        ll.setAlpha(0);
-//        rl.setAlpha(1);
+        ll=findViewById(R.id.main);
+        rl=findViewById(R.id.loader);
+        rl.setVisibility(View.VISIBLE);
         userC=findViewById(R.id.user);
         passC=findViewById(R.id.pass);
         user=userC.getText().toString().trim();
         pass=passC.getText().toString().trim();
         if(user.equals("")||pass.equals(""))
             {
-//                ll.setAlpha(1);
-//                rl.setAlpha(0);
+                rl.setVisibility(View.INVISIBLE);
                 Toast.makeText(getApplicationContext(), "Please Fill All Field!", Toast.LENGTH_SHORT).show();
 
             }
@@ -85,8 +82,7 @@ public class Login extends AppCompatActivity {
                         String addressF = dataSnapshot.child(user).child("address").getValue().toString();
 
                         if (user.equals(userF) && pass.equals(passF)) {
-//                            ll.setAlpha(1);
-//                            rl.setAlpha(0);
+                            rl.setVisibility(View.INVISIBLE);
                             Toast.makeText(getApplicationContext(), "Successful!", Toast.LENGTH_SHORT).show();
 
                             //Storing values in SharedPreferences
@@ -109,8 +105,7 @@ public class Login extends AppCompatActivity {
                     }
                     if (error == 1)
                         {
-//                            ll.setAlpha(1);
-//                            rl.setAlpha(0);
+                            rl.setVisibility(View.INVISIBLE);
                         Toast.makeText(getApplicationContext(), "Wrong Credentials!", Toast.LENGTH_LONG).show();
 }
                 }

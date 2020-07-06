@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +23,7 @@ public class signup extends AppCompatActivity {
     String user,pass,conpass,email,phone,address;
     Member member;
     DatabaseReference myRef;
+    RelativeLayout rl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +33,15 @@ public class signup extends AppCompatActivity {
         conpassC=findViewById(R.id.conpass);
         emailC=findViewById(R.id.email);
         phoneC=findViewById(R.id.phone);
+        rl=findViewById(R.id.loader);
+
+//        phoneC.setVisibility(View.GONE);
         addressC=findViewById(R.id.address);
         myRef = FirebaseDatabase.getInstance().getReference().child("Member");
     }
     public void validateSignup(View v)
     {
-
+        rl.setVisibility(View.VISIBLE);
         user= String.valueOf(userC.getText()).trim();
         pass= String.valueOf(passC.getText()).trim();
         conpass= String.valueOf(conpassC.getText()).trim();
@@ -48,14 +53,26 @@ public class signup extends AppCompatActivity {
 
 
         if(user.equals("")||pass.equals("")||conpass.equals("")||email.equals("")||phone.equals("")||address.equals(""))
+        {
+            rl.setVisibility(View.INVISIBLE);
             Toast.makeText(this,"Please Fill All Fields",Toast.LENGTH_SHORT).show();
+        }
         else if(pass.length()<8)
-            Toast.makeText(this,"Password Length Should be 8 or more",Toast.LENGTH_SHORT).show();
+            {
+                rl.setVisibility(View.INVISIBLE);
+                Toast.makeText(this,"Password Length Should be 8 or more",Toast.LENGTH_SHORT).show();
+
+            }
         else if(phone.length()<10||phone.length()>10)
+            {
+                rl.setVisibility(View.INVISIBLE);
             Toast.makeText(this,"Please Enter Correct Phone Number",Toast.LENGTH_SHORT).show();
 
-        else if(!pass.equals(conpass))
+            }
+        else if(!pass.equals(conpass)){
+            rl.setVisibility(View.INVISIBLE);
             Toast.makeText(this,"Password didn't match!",Toast.LENGTH_SHORT).show();
+       }
         else
         {
 
@@ -72,6 +89,7 @@ public class signup extends AppCompatActivity {
                           member.setAddress(address);
 
                           myRef.child(user).setValue(member);
+                          rl.setVisibility(View.INVISIBLE);
                           Toast.makeText(getApplicationContext(),"Done! Signup",Toast.LENGTH_LONG).show();
                           Intent ii=new Intent(getApplicationContext(),Login.class);
                           startActivity(ii);
@@ -79,6 +97,7 @@ public class signup extends AppCompatActivity {
 
                        }
                       else{
+                          rl.setVisibility(View.INVISIBLE);
                           Toast.makeText(getApplicationContext(),"Username Already exist",Toast.LENGTH_SHORT).show();
                       }
                       }

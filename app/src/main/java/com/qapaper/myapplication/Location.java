@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
@@ -32,6 +33,7 @@ public class Location extends AppCompatActivity {
     List<Double> loc_price;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
+    RelativeLayout rl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,8 @@ public class Location extends AppCompatActivity {
         pref = getApplicationContext().getSharedPreferences("session_user", 0);
         editor = pref.edit();
         loc_spinner = findViewById(R.id.loc_spinner);
+        rl=findViewById(R.id.loader);
+        rl.setVisibility(View.VISIBLE);
         loc_list = new ArrayList<String>();
         loc_price = new ArrayList<Double>();
         //Adding Default value for location name and price
@@ -63,6 +67,7 @@ public class Location extends AppCompatActivity {
                     loc_price.add(price);
 
                 }
+                rl.setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -73,8 +78,9 @@ public class Location extends AppCompatActivity {
 
 
         Adapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, loc_list);
-        loc_spinner.setPrompt("Select your favorite Planet!");
+
         loc_spinner.setAdapter((SpinnerAdapter) adapter);
+
 
 
     }

@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".signup"
     android:background="@color/white">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -149,5 +152,32 @@
                 android:onClick="validateSignup"/>
         </RelativeLayout>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:alpha="0.8"
+        android:id="@+id/loader"
+        android:background="@color/white">
+        <com.agrawalsuneet.dotsloader.loaders.LazyLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+
+            android:layout_margin="20dp"
+            app:lazyloader_animDur="800"
+            app:lazyloader_dotsDist="10dp"
+            app:lazyloader_dotsRadius="16dp"
+            app:lazyloader_firstDelayDur="150"
+            app:lazyloader_firstDotColor="@color/colorPrimary"
+            app:lazyloader_interpolator="@android:anim/decelerate_interpolator"
+            app:lazyloader_secondDelayDur="300"
+            app:lazyloader_secondDotColor="@color/colorPrimaryDark"
+            app:lazyloader_thirdDotColor="@color/colorAccent" />
+    </RelativeLayout>
+
+</FrameLayout>
 
 </ScrollView>
