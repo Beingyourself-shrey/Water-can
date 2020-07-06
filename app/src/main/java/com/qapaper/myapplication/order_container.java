@@ -55,8 +55,8 @@ RelativeLayout rl;
         dref.child(user).child("orders").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
-                    SharePrefDetails sharePrefDetails= snapshot.getValue(SharePrefDetails.class);
+                for(int i = (int) (dataSnapshot.getChildrenCount()-1); i>=0; i--){
+                    SharePrefDetails sharePrefDetails= dataSnapshot.child(String.valueOf(i)).getValue(SharePrefDetails.class);
 
 
                     //child LinearLayout in main Container
