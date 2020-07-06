@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,154 +7,153 @@
     tools:context=".Login"
     android:background="#ffffff">
 
-
-
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    >
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="10dp"
-        android:visibility="visible"
-        android:id="@+id/main"
-        android:orientation="vertical">
-        <RelativeLayout
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
-
-            <TextView
-                android:id="@+id/welcome"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="@string/Greeting_Welcome"
-                android:textColor="@color/colorPrimary"
-                android:textSize="11pt" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="0dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:textColor="@color/colorPrimary"
-                android:text="@string/Greeting_welcome_line"
-                android:textSize="7pt" />
-        </RelativeLayout>
-
-
-
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textSize="7pt"
-            android:id="@+id/user"
-            android:drawableLeft="@drawable/user"
-            android:hint="@string/username"
-            android:textColor="@color/black"
-            android:drawablePadding="10dp"
-            android:layout_marginTop="80dp"
-            android:drawableTint="@color/colorPrimary"
-            android:drawableStart="@drawable/user"
-            tools:targetApi="m" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:id="@+id/pass"
-            android:textColor="@color/black"
-            android:drawableLeft="@drawable/pass"
-            android:drawableTint="@color/colorPrimary"
-            android:drawablePadding="10dp"
-            android:layout_marginTop="40dp"
-            android:textSize="7pt"
-            android:hint="@string/password"
-            tools:targetApi="m"
-            android:drawableStart="@drawable/pass" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/forgot_password"
-                android:textColor="@color/colorPrimary"
-                android:layout_alignParentEnd="true"
-                android:textSize="6pt"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_alignParentRight="true" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="90dp"
-            android:paddingHorizontal="40dp">
-            <Button
+            android:layout_height="match_parent"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            android:visibility="visible"
+            android:id="@+id/main"
+            android:orientation="vertical">
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="25dp"
-                android:paddingRight="25dp"
-                android:text="@string/sign_in"
-                android:onClick="loginValidate"
-                android:textSize="8pt"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:background="@drawable/my_button_bg"
+                android:layout_marginTop="30dp">
 
-                />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:gravity="center">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
                 <TextView
+                    android:id="@+id/welcome"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/not_a_member"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="@string/Greeting_Welcome"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="6pt"/>
+                    android:textSize="11pt" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/sign_up"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="0dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/colorPrimary"
+                    android:text="@string/Greeting_welcome_line"
+                    android:textSize="7pt" />
+            </RelativeLayout>
+
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="7pt"
+                android:id="@+id/user"
+                android:drawableLeft="@drawable/user"
+                android:hint="@string/username"
+                android:textColor="@color/black"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="80dp"
+                android:drawableTint="@color/colorPrimary"
+                android:drawableStart="@drawable/user"
+                tools:targetApi="m" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:id="@+id/pass"
+                android:textColor="@color/black"
+                android:drawableLeft="@drawable/pass"
+                android:drawableTint="@color/colorPrimary"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="40dp"
+                android:textSize="7pt"
+                android:hint="@string/password"
+                tools:targetApi="m"
+                android:drawableStart="@drawable/pass" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/forgot_password"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_alignParentEnd="true"
                     android:textSize="6pt"
-                    android:layout_marginLeft="5dp"
-                    android:onClick="signUp"
-                    android:textColor="@color/colorPrimaryDark"/>
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="90dp"
+                android:paddingHorizontal="40dp">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="25dp"
+                    android:text="@string/sign_in"
+                    android:onClick="loginValidate"
+                    android:textSize="8pt"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:background="@drawable/my_button_bg"
 
-            </LinearLayout>
-        </RelativeLayout>
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/not_a_member"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="6pt"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sign_up"
+                        android:textSize="6pt"
+                        android:layout_marginLeft="5dp"
+                        android:onClick="signUp"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+                </LinearLayout>
+            </RelativeLayout>
 
 
-    </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -165,7 +164,7 @@
         <com.agrawalsuneet.dotsloader.loaders.LazyLoader
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:layout_centerHorizontal="true"
+            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
 
             android:layout_margin="20dp"
@@ -179,10 +178,4 @@
             app:lazyloader_secondDotColor="@color/colorPrimaryDark"
             app:lazyloader_thirdDotColor="@color/colorAccent" />
     </RelativeLayout>
-
 </FrameLayout>
-
-
-
-
-</ScrollView>

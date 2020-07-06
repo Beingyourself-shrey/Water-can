@@ -6,34 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".order_container"
     android:fillViewport="true">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="70dp"
-    >
-
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:id="@+id/parent"
+        android:layout_height="match_parent"
         >
-        <TextView
-            android:id="@+id/type_heading"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text=" My Orders"
-            android:layout_marginBottom="30dp"
-            android:textColor="#000"
-            android:textSize="50sp" />
+            android:layout_height="match_parent"
+            android:paddingBottom="70dp"
+            >
 
-    </LinearLayout>
 
-</ScrollView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:id="@+id/parent"
+                    >
+                    <TextView
+                        android:id="@+id/type_heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text=" My Orders"
+                        android:layout_marginBottom="30dp"
+                        android:textColor="#000"
+                        android:textSize="50sp" />
+                </LinearLayout>
 
+
+
+        </ScrollView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:alpha="0.8"
+            android:id="@+id/loader"
+            android:background="@color/white">
+            <com.agrawalsuneet.dotsloader.loaders.LazyLoader
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+
+                android:layout_margin="20dp"
+                app:lazyloader_animDur="800"
+                app:lazyloader_dotsDist="10dp"
+                app:lazyloader_dotsRadius="16dp"
+                app:lazyloader_firstDelayDur="150"
+                app:lazyloader_firstDotColor="@color/colorPrimary"
+                app:lazyloader_interpolator="@android:anim/decelerate_interpolator"
+                app:lazyloader_secondDelayDur="300"
+                app:lazyloader_secondDotColor="@color/colorPrimaryDark"
+                app:lazyloader_thirdDotColor="@color/colorAccent" />
+        </RelativeLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

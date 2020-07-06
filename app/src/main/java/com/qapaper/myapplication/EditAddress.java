@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,13 +19,14 @@ public class EditAddress extends AppCompatActivity {
  EditText address_et;
  SharedPreferences spref;
  SharedPreferences.Editor editor;
+ RelativeLayout rl;
     DatabaseReference dref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_address);
 
-
+        rl=findViewById(R.id.loader);
         heading_tv=findViewById(R.id.heading);
         address_et=findViewById(R.id.address);
         //Font
@@ -42,7 +44,9 @@ public class EditAddress extends AppCompatActivity {
     }
 
     public void Save(View view) {
+        rl.setVisibility(View.VISIBLE);
         if(address_et.getText().toString().trim().equals("")){
+            rl.setVisibility(View.INVISIBLE);
             Toast.makeText(getApplicationContext(),"Fill the address",Toast.LENGTH_SHORT).show();
         }
         else{
@@ -52,6 +56,7 @@ public class EditAddress extends AppCompatActivity {
             String user=spref.getString("username","");
             dref= FirebaseDatabase.getInstance().getReference().child("Member");
             dref.child(user).child("address").setValue(address_et.getText().toString().trim());
+            Toast.makeText(getApplicationContext(),"Address Saved!",Toast.LENGTH_SHORT).show();
             Intent i=new Intent(this,Generation.class);
             startActivity(i);
             this.finish();

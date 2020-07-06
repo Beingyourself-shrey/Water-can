@@ -21,7 +21,7 @@ public class SharePrefDetails {
     String date;
 
     public SharePrefDetails(){
-
+this.quantity="1";
     }
     public SharePrefDetails(String location, String address, String cantype, String quantity, String totalPrice, String usrname, String phn, String email, String price,String date) {
         this.location = location;

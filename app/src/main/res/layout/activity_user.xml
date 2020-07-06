@@ -56,12 +56,15 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Logout"
+                android:text="@string/logout"
                 android:id="@+id/user_info"
+                android:textAllCaps="false"
+                android:paddingHorizontal="100dp"
+                android:textSize="25sp"
                 android:layout_gravity="center"
                 android:onClick="logout"
                 android:background="@drawable/my_button_bg"
-                android:textColor="#000"
+                android:textColor="@color/white"
                 />
         </LinearLayout>
 

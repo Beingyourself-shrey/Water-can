@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -32,10 +33,15 @@ public class Generation extends AppCompatActivity {
         //SharePreference
         sharedPreferencesobj=getApplicationContext().getSharedPreferences("session_user",0);
         shareeditor=sharedPreferencesobj.edit();
-
+        String qty=sharedPreferencesobj.getString("quantity",null);
         heading.setText(sharedPreferencesobj.getString("type","").toUpperCase());
         price=Double.parseDouble(sharedPreferencesobj.getString("price",null));
         can_price_tv.setText(String.valueOf(price));
+        if(qty!=null)
+        quantity_tv.setText(qty);
+
+
+
 
         //total_price_tv txt_view
         total_price_tv=findViewById(R.id.total);

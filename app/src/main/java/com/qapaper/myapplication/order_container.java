@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -25,6 +26,7 @@ import static android.graphics.Color.BLACK;
 public class order_container extends AppCompatActivity {
 DatabaseReference dref;
 SharedPreferences spref;
+RelativeLayout rl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,8 @@ SharedPreferences spref;
         final LinearLayout parent=findViewById(R.id.parent);
 
         TextView heading=findViewById(R.id.type_heading);
-
+        rl=findViewById(R.id.loader);
+        rl.setVisibility(View.VISIBLE);
         //Font
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
         heading.setTypeface(typeface);
@@ -136,7 +139,9 @@ SharedPreferences spref;
                     //finally adding child LinearLayout in parent LinearLayout
                     parent.addView(child);
 
+
                 }
+                rl.setVisibility(View.INVISIBLE);
 
             }
 

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class address_activity extends AppCompatActivity {
     SharedPreferences spref;
     SharedPreferences.Editor editor;
     DatabaseReference dref;
+    RelativeLayout rl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class address_activity extends AppCompatActivity {
         spref=getApplicationContext().getSharedPreferences("session_user",0);
 //        editor=spref.edit();
         user=spref.getString("username","");
+        rl=findViewById(R.id.loader);
 
 
         heading_tv=findViewById(R.id.heading);
@@ -70,6 +73,7 @@ public class address_activity extends AppCompatActivity {
     }
 
     public void order(View view) {
+        rl.setVisibility(View.VISIBLE);
         String username=spref.getString("username","");
         String phone=spref.getString("phone","");
         String email=spref.getString("email","");
@@ -105,7 +109,9 @@ public class address_activity extends AppCompatActivity {
                 }
 
                 Toast.makeText(getApplicationContext(),"Ordered",Toast.LENGTH_SHORT).show();
-
+                editor=spref.edit();
+                editor.putString("quantity","1");
+                editor.apply();
                 Intent i=new Intent(getApplicationContext(),Location.class);
                 startActivity(i);
                 finish();

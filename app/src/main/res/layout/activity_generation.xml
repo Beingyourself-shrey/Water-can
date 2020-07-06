@@ -128,14 +128,18 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
+                android:paddingVertical="2dp"
+                android:paddingHorizontal="24dp"
+                android:textAllCaps="false"
                 android:layout_below="@+id/total_container"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
+
                 android:id="@+id/order_btn"
+                android:textColor="@color/white"
                 android:onClick="order_address"
-                android:background="@drawable/signup_button_bg"
-                android:text="Order Now"/>
+                android:background="@drawable/my_button_bg"
+                android:text="@string/order_now"/>
 
         </RelativeLayout>
 

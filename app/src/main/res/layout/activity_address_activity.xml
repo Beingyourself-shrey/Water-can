@@ -5,67 +5,97 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".address_activity">
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingBottom="70dp">
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ADDRESS"
+                        android:textSize="50sp"
+                        android:gravity="center"
+                        android:id="@+id/heading"
+                        android:textColor="#000"/>
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Loading...."
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="110dp"
+                        android:textSize="25sp"
+                        android:textColor="#111"
+                        android:padding="6dp"
+                        android:id="@+id/address"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="110dp"
+                        android:paddingVertical="2dp"
+                        android:text="@string/edit"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="110dp"
+                        android:textColor="@color/white"
+                        android:textSize="25sp"
+                        android:id="@+id/editbtn"
+                        android:textAllCaps="false"
+
+                        android:onClick="editActivity"
+                        android:background="@drawable/my_button_bg"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="100dp"
+                        android:paddingVertical="2dp"
+                        android:text="@string/order"
+                        android:textAllCaps="false"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/white"
+                        android:textSize="25sp"
+                        android:id="@+id/order_btn"
+                        android:onClick="order"
+                        android:background="@drawable/my_button_bg"/>
+
+
+                </LinearLayout>
+        </ScrollView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:alpha="0.8"
+            android:id="@+id/loader"
+            android:background="@color/white">
+            <com.agrawalsuneet.dotsloader.loaders.LazyLoader
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ADDRESS"
-                android:textSize="50sp"
-                android:gravity="center"
-                android:id="@+id/heading"
-                android:textColor="#000"/>
-            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Loading...."
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="110dp"
-                android:textSize="25sp"
-                android:textColor="#111"
-                android:padding="6dp"
-                android:id="@+id/address"/>
-
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Edit"
-                android:layout_gravity="center"
-                android:layout_marginTop="110dp"
-                android:textColor="#000"
-                android:textSize="25sp"
-                android:padding="10dp"
-                android:id="@+id/editbtn"
-                android:onClick="editActivity"
-                android:background="@drawable/my_button_bg"/>
-
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="order"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:textColor="#000"
-                android:textSize="25sp"
-                android:padding="10dp"
-                android:id="@+id/order_btn"
-                android:onClick="order"
-                android:background="@drawable/my_button_bg"/>
-
-
-        </LinearLayout>
-
-
-    </ScrollView>
+                android:layout_margin="20dp"
+                app:lazyloader_animDur="800"
+                app:lazyloader_dotsDist="10dp"
+                app:lazyloader_dotsRadius="16dp"
+                app:lazyloader_firstDelayDur="150"
+                app:lazyloader_firstDotColor="@color/colorPrimary"
+                app:lazyloader_interpolator="@android:anim/decelerate_interpolator"
+                app:lazyloader_secondDelayDur="300"
+                app:lazyloader_secondDotColor="@color/colorPrimaryDark"
+                app:lazyloader_thirdDotColor="@color/colorAccent" />
+        </RelativeLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

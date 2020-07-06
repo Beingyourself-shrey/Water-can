@@ -21,6 +21,11 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_welcome">welcome</string>
+    <string name="order_now">Order Now</string>
+    <string name="edit">Edit</string>
+    <string name="order">Order</string>
+    <string name="save">Save</string>
+    <string name="logout">Logout</string>
 
 
 </resources>
