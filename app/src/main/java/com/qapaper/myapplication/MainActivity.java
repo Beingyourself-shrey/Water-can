@@ -42,14 +42,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        sharedPreferencesobj=getApplicationContext().getSharedPreferences("session_user",0);
+        if(!sharedPreferencesobj.contains("username"))
+        {
+            Intent i = new Intent(getApplicationContext(), Login.class);
+            startActivity(i);
+            finish();
+        }
         TextView heading_tv =  findViewById(R.id.heading);
         normal_tv=findViewById(R.id.normal_price);
         chilled_tv=findViewById(R.id.chilled_price);
 
         //font added
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
-        heading_tv.setTypeface(typeface);
+//        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
+//        heading_tv.setTypeface(typeface);
         //font end
 
        //Shared Preferences name session_user

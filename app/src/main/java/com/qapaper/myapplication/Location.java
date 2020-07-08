@@ -39,10 +39,17 @@ public class Location extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+        pref=getApplicationContext().getSharedPreferences("session_user",0);
+        if(!pref.contains("username"))
+        {
+            Intent i = new Intent(getApplicationContext(), Login.class);
+            startActivity(i);
+            finish();
+        }
         TextView textView = findViewById(R.id.heading_loc);
         //font added
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
-        textView.setTypeface(typeface);
+//        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
+//        textView.setTypeface(typeface);
 
         pref = getApplicationContext().getSharedPreferences("session_user", 0);
         editor = pref.edit();

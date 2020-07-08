@@ -26,6 +26,7 @@
     <string name="order">Order</string>
     <string name="save">Save</string>
     <string name="logout">Logout</string>
+    <string name="choose">Choose</string>
 
 
 </resources>

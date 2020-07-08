@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -38,10 +39,9 @@ RelativeLayout rl;
         rl=findViewById(R.id.loader);
         rl.setVisibility(View.VISIBLE);
         //Font
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
-        heading.setTypeface(typeface);
 
-        final Typeface typeface1 = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf");
+
+        final Typeface typeface1 = Typeface.createFromAsset(getAssets(), "fonts/nunito.ttf");
 
 
 
@@ -64,8 +64,6 @@ RelativeLayout rl;
 
 
                     child.setOrientation(LinearLayout.VERTICAL);
-
-
                     //creating textViews
                     TextView name_tv = new TextView(getApplicationContext());
                     TextView quantity_tv = new TextView(getApplicationContext());
@@ -123,7 +121,7 @@ RelativeLayout rl;
                     date_tv.setTypeface(typeface1);
 
                     //adding all textView in child
-                    child.addView(name_tv);
+//                    child.addView(name_tv);
                     child.addView(quantity_tv);
                     child.addView(price_tv);
                     child.addView(total_tv);

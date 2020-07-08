@@ -30,12 +30,12 @@ public class EditAddress extends AppCompatActivity {
         heading_tv=findViewById(R.id.heading);
         address_et=findViewById(R.id.address);
         //Font
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
-
-
-        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf");
-        address_et.setTypeface(tf);
-        heading_tv.setTypeface(tf);
+//        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
+//
+//
+//        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf");
+//        address_et.setTypeface(tf);
+//        heading_tv.setTypeface(tf);
 
         //sharePref getting address
         spref=getApplicationContext().getSharedPreferences("session_user",0);

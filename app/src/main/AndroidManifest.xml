@@ -11,10 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".order_container"
-            android:theme="@style/AppTheme.NoActionBar"  >
-
+        <activity
+            android:name=".OrderConfirmActivity"
+            android:label="Order Details">
         </activity>
+        <activity
+            android:name=".order_container"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".EditAddress"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -32,7 +35,7 @@
             android:label="About Me" />
         <activity
             android:name=".welcome"
-            android:label="@string/title_activity_welcome"
+            android:label="Water Can Delivery"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

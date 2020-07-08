@@ -49,12 +49,7 @@ public class address_activity extends AppCompatActivity {
 
         heading_tv=findViewById(R.id.heading);
         address_tv=findViewById(R.id.address);
-        //Font
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
-        heading_tv.setTypeface(typeface);
 
-        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf");
-        address_tv.setTypeface(tf);
 
         //Database References
 
@@ -73,57 +68,9 @@ public class address_activity extends AppCompatActivity {
     }
 
     public void order(View view) {
-        rl.setVisibility(View.VISIBLE);
-        String username=spref.getString("username","");
-        String phone=spref.getString("phone","");
-        String email=spref.getString("email","");
-        String type=spref.getString("type","");
-        String price=spref.getString("price","");
-        String total_price=spref.getString("total_price","");
-        String quantity=spref.getString("quantity","");
-        String location=spref.getString("location","");
+       Intent i=new Intent(getApplicationContext(),OrderConfirmActivity.class);
+       startActivity(i);
 
-        Date date = new Date();
-
-
-        //setting all sharepref values to shareprefDetailsClass
-        final SharePrefDetails sharePrefDetails=new SharePrefDetails(location,address,type,quantity,total_price,username,phone,email,price,date.toString());
-
-
-
-
-             dref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int count=0;
-                if(dataSnapshot.child("orders").exists())
-                {
-                    count=(int)dataSnapshot.child("orders").getChildrenCount();
-
-                            dref.child("orders").child(String.valueOf(count)).setValue(sharePrefDetails);
-                }
-                else
-                {
-                    dref.child("orders").child(String.valueOf(count)).setValue(sharePrefDetails);
-
-                }
-
-                Toast.makeText(getApplicationContext(),"Ordered",Toast.LENGTH_SHORT).show();
-                editor=spref.edit();
-                editor.putString("quantity","1");
-                editor.apply();
-                Intent i=new Intent(getApplicationContext(),Location.class);
-                startActivity(i);
-                finish();
-
-
-            }
-
-             @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
     }
 
     public void home(View view) {

@@ -22,13 +22,20 @@ public class Generation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generation);
+        sharedPreferencesobj=getApplicationContext().getSharedPreferences("session_user",0);
+        if(!sharedPreferencesobj.contains("username"))
+        {
+            Intent i = new Intent(getApplicationContext(), Login.class);
+            startActivity(i);
+            finish();
+        }
         TextView heading=findViewById(R.id.type_heading);
         can_price_tv=findViewById(R.id.price);
         quantity_tv=findViewById(R.id.quantity);
 
         //Font
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
-        heading.setTypeface(typeface);
+//        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
+//        heading.setTypeface(typeface);
 
         //SharePreference
         sharedPreferencesobj=getApplicationContext().getSharedPreferences("session_user",0);

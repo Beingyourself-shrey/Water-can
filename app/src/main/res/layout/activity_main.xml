@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:layout_weight="1"
-    android:fillViewport="true"
-    android:background="#fff">
+    android:fillViewport="true">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,78 +17,73 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CHOOSE"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:id="@+id/heading"
-            android:textColor="#000"
-            android:textSize="50sp"/>
-        <HorizontalScrollView
-            android:id="@+id/horizontalScroll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/heading"
-            android:animateLayoutChanges="true"
-            android:layout_marginTop="60dp"
-            android:scrollbars="none"
-            android:layout_centerHorizontal="true">
+            <TextView
+                android:id="@+id/heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/nunito"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="Select Any One"
+                android:textColor="#000"
+                android:textSize="50sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:layout_marginTop="50dp"
                 android:gravity="center"
                 android:padding="20dp"
                 android:id="@+id/list_item">
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/outline"
+                    android:background="#fff"
                     android:padding="10dp"
-                    android:orientation="vertical"
+                    android:layout_marginTop="60dp"
                     android:onClick="chilled"
+
                     >
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/water"
                         android:tint="#002e6e"
-
                         android:id="@+id/chilled_img"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/chilled_text"
+                        android:layout_alignParentEnd="true"
                         android:text="CHILLED"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="20dp"
                         android:textColor="#000"
                         android:textSize="15sp"
                         android:gravity="center"/>
+
                     <TextView
+                        android:id="@+id/chilled_price"
                         android:layout_width="wrap_content"
+                        android:layout_alignParentEnd="true"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/chilled_text"
-                        android:text="40rs"
-                        android:id="@+id/chilled_price"
-                        android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:textColor="#999"
-                        android:textSize="15sp"
-                        android:gravity="center"/>
+                        android:text="40/-"
+                        android:textColor="#222"
+                        android:fontFamily="sans-serif-black"
+                        android:textSize="15sp" />
 
-                </LinearLayout>
+                </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/outline"
+                    android:background="#fff"
                     android:padding="10dp"
+                    android:layout_marginTop="25dp"
                     android:onClick="normal"
-                    android:orientation="vertical"
-                    android:layout_marginStart="20dp"
                     >
                     <ImageView
                         android:layout_width="100dp"
@@ -101,27 +95,29 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/normal_text"
                         android:text="NORMAL"
-                        android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         android:textColor="#000"
                         android:textSize="15sp"
-                        android:gravity="center"/>
+                        android:layout_alignParentEnd="true"
+                        />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="30rs"
-                        android:layout_gravity="center"
+                        android:text="30/-"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginTop="10dp"
                         android:id="@+id/normal_price"
-                        android:textColor="#999"
+                        android:layout_below="@id/normal_text"
+                        android:textColor="#222"
+                        android:fontFamily="sans-serif-black"
                         android:textSize="15sp"
-                        android:gravity="center"/>
+                       />
 
-                </LinearLayout>
+                </RelativeLayout>
 
 
             </LinearLayout>
-        </HorizontalScrollView>
+
 
         </RelativeLayout>
 

@@ -24,6 +24,7 @@
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:id="@+id/parent"
+
                     >
                     <TextView
                         android:id="@+id/type_heading"
@@ -31,6 +32,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text=" My Orders"
+                        android:fontFamily="@font/nunito"
                         android:layout_marginBottom="30dp"
                         android:textColor="#000"
                         android:textSize="50sp" />
