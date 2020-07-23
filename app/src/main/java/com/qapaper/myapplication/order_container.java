@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -21,6 +22,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.zip.Inflater;
 
 import static android.graphics.Color.BLACK;
 
@@ -58,38 +61,20 @@ RelativeLayout rl;
                 for(int i = (int) (dataSnapshot.getChildrenCount()-1); i>=0; i--){
                     SharePrefDetails sharePrefDetails= dataSnapshot.child(String.valueOf(i)).getValue(SharePrefDetails.class);
 
+                    LayoutInflater inflater = getLayoutInflater();
+                    View child = inflater.inflate(R.layout.activity_order_inflator,
+                            (ViewGroup) findViewById(R.id.order_model),false);
 
-                    //child LinearLayout in main Container
-                    LinearLayout child = new LinearLayout(getApplicationContext());
 
-
-                    child.setOrientation(LinearLayout.VERTICAL);
-                    //creating textViews
-                    TextView name_tv = new TextView(getApplicationContext());
-                    TextView quantity_tv = new TextView(getApplicationContext());
-                    TextView cantype_tv = new TextView(getApplicationContext());
-                    TextView price_tv = new TextView(getApplicationContext());
-                    TextView total_tv = new TextView(getApplicationContext());
-                    TextView phone_tv = new TextView(getApplicationContext());
-                    TextView address_tv = new TextView(getApplicationContext());
-                    TextView location_tv = new TextView(getApplicationContext());
-                    TextView date_tv = new TextView(getApplicationContext());
-                    child.setPaddingRelative(10, 30, 10, 30);
-                    //setting background
-                    child.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.outline));
-                    //setting textsize
-                    name_tv.setTextSize(24);
-                    quantity_tv.setTextSize(24);
-                    price_tv.setTextSize(24);
-                    total_tv.setTextSize(24);
-                    phone_tv.setTextSize(24);
-                    address_tv.setTextSize(24);
-                    location_tv.setTextSize(24);
-                    cantype_tv.setTextSize(24);
-                    date_tv.setTextSize(24);
-
-                    //setting Text
-                    name_tv.setText("Username: "+sharePrefDetails.getUsrname());
+                    TextView quantity_tv =child.findViewById(R.id.quantity);
+                    TextView cantype_tv = child.findViewById(R.id.cantype);
+                    TextView price_tv = child.findViewById(R.id.price);
+                    TextView total_tv = child.findViewById(R.id.total);
+                    TextView phone_tv = child.findViewById(R.id.phone);
+                    TextView address_tv = child.findViewById(R.id.address);
+                    TextView location_tv = child.findViewById(R.id.location);
+                    TextView date_tv = child.findViewById(R.id.date);
+                    //setting text
                     quantity_tv.setText("Total Quantity: "+sharePrefDetails.getQuantity());
                     price_tv.setText("Price: "+sharePrefDetails.getPrice());
                     total_tv.setText("Total Price: "+sharePrefDetails.getTotalPrice());
@@ -98,43 +83,15 @@ RelativeLayout rl;
                     location_tv.setText("Location: "+sharePrefDetails.getLocation());
                     cantype_tv.setText("Can Typre: "+sharePrefDetails.getCantype());
                     date_tv.setText("Date: "+sharePrefDetails.getDate());
-                    //textcoloring of tv
-                    name_tv.setTextColor(BLACK);
-                    quantity_tv.setTextColor(BLACK);
-                    price_tv.setTextColor(BLACK);
-                    total_tv.setTextColor(BLACK);
-                    phone_tv.setTextColor(BLACK);
-                    address_tv.setTextColor(BLACK);
-                    location_tv.setTextColor(BLACK);
-                    cantype_tv.setTextColor(BLACK);
-                    date_tv.setTextColor(BLACK);
 
-                    //setting font family
-                    name_tv.setTypeface(typeface1);
-                    quantity_tv.setTypeface(typeface1);
-                    price_tv.setTypeface(typeface1);
-                    total_tv.setTypeface(typeface1);
-                    phone_tv.setTypeface(typeface1);
-                    address_tv.setTypeface(typeface1);
-                    location_tv.setTypeface(typeface1);
-                    cantype_tv.setTypeface(typeface1);
-                    date_tv.setTypeface(typeface1);
-
-                    //adding all textView in child
-//                    child.addView(name_tv);
-                    child.addView(quantity_tv);
-                    child.addView(price_tv);
-                    child.addView(total_tv);
-                    child.addView(phone_tv);
-                    child.addView(address_tv);
-                    child.addView(location_tv);
-                    child.addView(cantype_tv);
-                    child.addView(date_tv);
-                    //setting Margin1
 
 
 
                     //finally adding child LinearLayout in parent LinearLayout
+//                            if(child.getParent() != null) {
+//                                ((ViewGroup)child.getParent()).removeView(child); // <- fix
+//                            }
+
                     parent.addView(child);
 
 
