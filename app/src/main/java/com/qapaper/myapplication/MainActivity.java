@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void myinfo(View view) {
         Intent i=new Intent(this,User.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
 
     }

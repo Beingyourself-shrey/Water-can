@@ -26,7 +26,7 @@ import static android.support.v4.content.ContextCompat.startActivity;
 
 public class welcome extends AppCompatActivity {
 DatabaseReference dref;
-    Boolean value;
+    Boolean value=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

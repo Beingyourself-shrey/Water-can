@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/water5"
+        android:src="@drawable/water2"
         android:layout_centerHorizontal="true"
         android:alpha="0"
         android:id="@+id/waterimg"/>
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:textColor="#fff"
         android:fontFamily="@font/lato"
-        android:text="Developed By Shrey"
+        android:text="By Shrey Garg"
         android:layout_below="@+id/waterimg"
         android:layout_centerHorizontal="true"
         android:textSize="20sp"/>

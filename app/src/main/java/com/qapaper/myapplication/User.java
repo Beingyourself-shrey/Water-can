@@ -39,6 +39,7 @@ SharedPreferences sharedPreferencesobj;
     }
     public void home(View view) {
         Intent i=new Intent(this,Location.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
     }
     public void myorders(View view) {

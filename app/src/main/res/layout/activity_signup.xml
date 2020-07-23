@@ -25,7 +25,7 @@
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/user1"
+                    android:src="@drawable/user6"
                     android:drawableTint="@color/white"/>
             </RelativeLayout>
 

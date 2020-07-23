@@ -66,7 +66,7 @@ public class OrderConfirmActivity extends AppCompatActivity {
         email_tv.setText(String.valueOf(email));
 
         //database refs
-        dref= FirebaseDatabase.getInstance().getReference().child("Member").child(user);
+        dref= FirebaseDatabase.getInstance().getReference();
 
     }
     public void placeOrder(View view){
@@ -80,7 +80,7 @@ public class OrderConfirmActivity extends AppCompatActivity {
         String quantity=spref.getString("quantity","");
         String location=spref.getString("location","");
         String address=spref.getString("address","");
-        Date date = new Date();
+        final Date date = new Date();
          msg="Username: "+username+"\n Phone: "+phone+"\nEmail: "+email+"\nType: "+type+"\nPrice: "+price+"\nTotal Price: "+total_price+"\nQuantity: "+quantity+"\nLocation: "+location+"\nAddress: "+address+"\nDate: "+date;
 
 
@@ -94,64 +94,77 @@ public class OrderConfirmActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int count=0;
-                if(dataSnapshot.child("orders").exists())
-                {
-                    count=(int)dataSnapshot.child("orders").getChildrenCount();
-
-                    dref.child("orders").child(String.valueOf(count)).setValue(sharePrefDetails);
-                }
+                String start=dataSnapshot.child("time").child("start").getValue().toString();
+                String end=dataSnapshot.child("time").child("end").getValue().toString();
+                Log.d("shrey", "Time start "+start+" End: "+end+"  original hour "+date.getHours()+"Minutes "+date.getMinutes());
+                int startTime=Integer.parseInt(start);
+                int endTime=Integer.parseInt(end);
+                int currentHour=date.getHours();
+                //check order is placing in working hrs
+                if(startTime>currentHour || endTime<currentHour)
+                    Toast.makeText(getApplicationContext(),"Please Place order Between "+start+" A.M to "+(endTime-12)+" P.M",Toast.LENGTH_SHORT).show();
                 else
                 {
-                    dref.child("orders").child(String.valueOf(count)).setValue(sharePrefDetails);
 
-                }
-                rl.setVisibility(View.INVISIBLE);
+                    if(dataSnapshot.child("Member").child(user).child("orders").exists())
+                    {
+                        count=(int)dataSnapshot.child("Member").child(user).child("orders").getChildrenCount();
 
-                Toast.makeText(getApplicationContext(),"Ordered",Toast.LENGTH_SHORT).show();
-                editor=spref.edit();
-                editor.putString("quantity","1");
-                editor.apply();
-
-                //sms api
-
-
-
-                try {
-                    // Construct data
-                    String apiKey = "apikey=" + "MRKFXNEiepA-t9BFAiMVRfXMkrmMXALXuhAH9LQzGF";
-                    String message = "&message=" +msg;
-                    String sender = "&sender=" + "TXTLCL";
-                    String numbers = "&numbers=" + "918871009875";
-
-                    // Send data
-                    HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
-                    String data = apiKey + numbers + message + sender;
-                    conn.setDoOutput(true);
-                    conn.setRequestMethod("POST");
-                    conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
-                    conn.getOutputStream().write(data.getBytes("UTF-8"));
-                    final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    final StringBuffer stringBuffer = new StringBuffer();
-                    String line;
-                    while ((line = rd.readLine()) != null) {
-                        stringBuffer.append(line);
-                        Log.d("messagesbyshrey", line);
+                        dref.child("Member").child(user).child("orders").child(String.valueOf(count)).setValue(sharePrefDetails);
                     }
-                    rd.close();
+                    else
+                    {
+                        dref.child("Member").child(user).child("orders").child(String.valueOf(count)).setValue(sharePrefDetails);
+
+                    }
+                    rl.setVisibility(View.INVISIBLE);
+
+                    Toast.makeText(getApplicationContext(),"Ordered",Toast.LENGTH_SHORT).show();
+                    editor=spref.edit();
+                    editor.putString("quantity","1");
+                    editor.apply();
+
+                    //sms api
 
 
-                } catch (Exception e) {
-                    Log.d("Error SMS ", e.toString());
 
+                    try {
+                        // Construct data
+                        String apiKey = "apikey=" + "MRKFXNEiepA-t9BFAiMVRfXMkrmMXALXuhAH9LQzGF";
+                        String message = "&message=" +msg;
+                        String sender = "&sender=" + "TXTLCL";
+                        String numbers = "&numbers=" + "918871009875";
+
+                        // Send data
+                        HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
+                        String data = apiKey + numbers + message + sender;
+                        conn.setDoOutput(true);
+                        conn.setRequestMethod("POST");
+                        conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
+                        conn.getOutputStream().write(data.getBytes("UTF-8"));
+                        final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                        final StringBuffer stringBuffer = new StringBuffer();
+                        String line;
+                        while ((line = rd.readLine()) != null) {
+                            stringBuffer.append(line);
+                            Log.d("messagesbyshrey", line);
+                        }
+                        rd.close();
+
+
+                    } catch (Exception e) {
+                        Log.d("Error SMS ", e.toString());
+
+                    }
+
+
+
+                    //sms api end
+
+                    Intent i=new Intent(getApplicationContext(),Location.class);
+                    startActivity(i);
+                    finish();
                 }
-
-
-
-                //sms api end
-
-                Intent i=new Intent(getApplicationContext(),Location.class);
-                startActivity(i);
-                finish();
 
 
             }
@@ -171,6 +184,7 @@ public class OrderConfirmActivity extends AppCompatActivity {
     }
     public void myinfo(View view) {
         Intent i=new Intent(this,User.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
 
     }

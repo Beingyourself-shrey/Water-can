@@ -34,7 +34,7 @@ public class Location extends AppCompatActivity {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     RelativeLayout rl;
-
+    int i=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,6 +105,17 @@ public class Location extends AppCompatActivity {
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
         }
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        i++;
+        if(i==2)
+        super.onBackPressed();
+        else
+        Toast.makeText(this,"Press Again to Exit",Toast.LENGTH_SHORT).show();
 
 
     }
